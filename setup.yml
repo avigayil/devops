@@ -1,0 +1,26 @@
+- hosts: localhost
+  tasks:
+  - name: install git
+    yum: name=git state=latest
+    become: yes
+    become_method: sudo
+  - name: clone petclinic
+    git:
+     repo: https://github.com/avigayil/spring-petclinic.git
+     dest: ./ex1/petclinic
+  - name: clone devops
+    git: 
+     repo: https://github.com/avigayil/devops.git
+     dest: ./ex1/devops
+  - name: install docker
+    yum: name=docker state=latest
+    become: yes
+    become_method: sudo
+  - name: add docker to ec2-user
+    user: name=ec2-user groups=docker append=yes
+    become: yes
+    become_method: sudo
+  - name: start docker service
+    service: name=docker state=started
+    become: yes
+    become_method: sudo
