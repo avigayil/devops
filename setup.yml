@@ -7,11 +7,11 @@
   - name: clone petclinic
     git:
      repo: https://github.com/avigayil/spring-petclinic.git
-     dest: ./ex1/petclinic
+     dest: ./petclinic
   - name: clone devops
     git: 
      repo: https://github.com/avigayil/devops.git
-     dest: ./ex1/devops
+     dest: ./devops
   - name: install docker
     yum: name=docker state=latest
     become: yes
