@@ -1,0 +1,7 @@
+ -- list running containers
+docker ps -a -- list all containers
+docker build -t yourimagename . -- creates an image
+docker images -- list images
+docker run -it imagename -- runs a container
+docker rm -f `docker ps -a -q` -- destroys all containers
+
