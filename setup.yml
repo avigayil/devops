@@ -24,3 +24,9 @@
     service: name=docker state=started
     become: yes
     become_method: sudo
+  - name: download and unpack maven from http://apache.spd.co.il/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz
+    unarchive:
+     src: http://apache.spd.co.il/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz
+     dest: /home/ec2-user/maven
+     copy: no
+     creates: ./maven/apache-maven-3.3.9
